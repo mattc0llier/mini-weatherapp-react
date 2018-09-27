@@ -1,9 +1,18 @@
-import React from 'react';
+import React from "react";
+import Thumbnail from "./Thumbnail.js";
 
 class Thumbs extends React.Component {
-  render(){
+  render() {
     return (
-      <div className="thumbs" id="thumbs"></div>
+      <div className="thumbs" id="thumbs">
+        {this.props.images.map(image => (
+          <Thumbnail
+            key={image.id}
+            imageObject={image}
+            receiveImage={this.props.receiveImage}
+          />
+        ))}
+      </div>
     );
   }
 }
